@@ -33,38 +33,50 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="modal" style={{ display: "block" }} tabIndex="-1">
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
+    <section className="vh-100 bg-gradient-login">
+      <div className="modal" style={{ display: "block" }} tabIndex="-1">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="card">
+              <div className="card-body">
+                <h5 className="text-center mb-5">Login</h5>
+                <form onSubmit={onSubmit}>
+                  <div className="input-group mb-3">
+                    <span className="input-group-text">👤</span>
+                    <input
+                      className="form-control w-30"
+                      placeholder="Username"
+                      name="username"
+                      value={username}
+                      onChange={onInputChange}
+                    />
+                  </div>
+
+                  <div className="input-group mb-3">
+                    <span className="input-group-text">🔑</span>
+                    <input
+                      className="form-control w-30"
+                      type="password"
+                      placeholder="Password"
+                      name="password"
+                      value={password}
+                      onChange={onInputChange}
+                    />
+                  </div>
+                  <div className="d-flex justify-content-center text-body">
+                    <button
+                      type="submit"
+                      className="btn btn-success gradient-custom"
+                    >
+                      Log In
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-          <form onSubmit={onSubmit}>
-            <div className="modal-body">
-              <input
-                className="form-control my-3 w-75"
-                placeholder="Username"
-                name="username"
-                value={username}
-                onChange={onInputChange}
-              />
-              <input
-                className="form-control my-3 w-75"
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={password}
-                onChange={onInputChange}
-              />
-            </div>
-            <div className="modal-footer">
-              <button type="submit" className="btn btn-primary">
-                Log In
-              </button>
-            </div>
-          </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

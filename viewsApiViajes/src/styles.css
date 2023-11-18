@@ -39,3 +39,20 @@
         opacity: 1
     }
 }
+
+h5 {
+    color: #E74C3C;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.gradient-custom {
+    background: #E74C3C;
+    background: linear-gradient(to right, rgba(231, 76, 60), rgba(243, 156, 18));
+    border: 0px;
+}
+
+.bg-gradient-login {
+    background: #E74C3C;
+    background: linear-gradient(to right, rgba(231, 76, 60), rgba(243, 156, 18));
+}
