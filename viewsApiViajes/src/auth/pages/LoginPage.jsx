@@ -33,45 +33,50 @@ export const LoginPage = () => {
   };
 
   return (
-    <section className="vh-100 bg-gradient-login">
-      <div className="modal" style={{ display: "block" }} tabIndex="-1">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="card">
-              <div className="card-body p-5">
-                <h5 className="text-center mb-5">Login</h5>
-                <form onSubmit={onSubmit}>
-                  <div className="input-group mb-3">
-                    <span className="input-group-text">👤</span>
-                    <input
-                      className="form-control w-30"
-                      placeholder="Username"
-                      name="username"
-                      value={username}
-                      onChange={onInputChange}
-                    />
-                  </div>
+    <section className="vh-100 bg-image">
+      <div className="mask d-flex align-items-center h-100 bg-gradient-login">
+        <div className="modal" style={{ display: "block" }} tabIndex="-1">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="card bg-dark">
+                <div className="card-body p-5">
+                  <h5 className="text-center text-uppercase mb-2">Login</h5>
+                  <p className="p-login mb-5 text-center">
+                    Please enter your username and password
+                  </p>
+                  <form onSubmit={onSubmit}>
+                    <div className="input-group mb-4">
+                      <span className="input-group-text">👤</span>
+                      <input
+                        className="form-control"
+                        placeholder="Username"
+                        name="username"
+                        value={username}
+                        onChange={onInputChange}
+                      />
+                    </div>
 
-                  <div className="input-group mb-3">
-                    <span className="input-group-text">🔑</span>
-                    <input
-                      className="form-control w-30"
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      value={password}
-                      onChange={onInputChange}
-                    />
-                  </div>
-                  <div className="d-flex justify-content-center">
-                    <button
-                      type="submit"
-                      className="btn btn-success btn-block btn-lg gradient-custom"
-                    >
-                      Log In
-                    </button>
-                  </div>
-                </form>
+                    <div className="input-group mb-4">
+                      <span className="input-group-text">🔑</span>
+                      <input
+                        className="form-control"
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        value={password}
+                        onChange={onInputChange}
+                      />
+                    </div>
+                    <div className="d-flex justify-content-center">
+                      <button
+                        type="submit"
+                        className="btn btn-success gradient-custom text-body w-100 mb-4"
+                      >
+                        Log In
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
