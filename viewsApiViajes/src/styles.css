@@ -61,6 +61,7 @@ h5 {
   background-image: url("https://images8.alphacoders.com/133/1335324.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .bg-gradient-login {
