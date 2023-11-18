@@ -48,11 +48,11 @@ h5 {
 
 .gradient-custom {
     background: #3498DB;
-    background: linear-gradient(to right, rgba(52, 152, 219), rgba(142, 68, 173));
+    background: linear-gradient(to right, rgba(52, 152, 219), rgba(118, 215, 196));
     border: 0px;
 }
 
 .bg-gradient-login {
     background: #3498DB;
-    background: linear-gradient(to right, rgba(52, 152, 219), rgba(142, 68, 173));
+    background: linear-gradient(to right, rgba(52, 152, 219), rgba(118, 215, 196));
 }

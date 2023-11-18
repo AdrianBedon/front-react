@@ -38,7 +38,7 @@ export const LoginPage = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="card">
-              <div className="card-body">
+              <div className="card-body p-5">
                 <h5 className="text-center mb-5">Login</h5>
                 <form onSubmit={onSubmit}>
                   <div className="input-group mb-3">
@@ -63,10 +63,10 @@ export const LoginPage = () => {
                       onChange={onInputChange}
                     />
                   </div>
-                  <div className="d-flex justify-content-center text-body">
+                  <div className="d-flex justify-content-center">
                     <button
                       type="submit"
-                      className="btn btn-success gradient-custom"
+                      className="btn btn-success btn-block btn-lg gradient-custom"
                     >
                       Log In
                     </button>
