@@ -41,18 +41,18 @@
 }
 
 h5 {
-    color: #E74C3C;
+    color: #3498DB;
     font-size: 30px;
     font-weight: 600;
 }
 
 .gradient-custom {
-    background: #E74C3C;
-    background: linear-gradient(to right, rgba(231, 76, 60), rgba(243, 156, 18));
+    background: #3498DB;
+    background: linear-gradient(to right, rgba(52, 152, 219), rgba(142, 68, 173));
     border: 0px;
 }
 
 .bg-gradient-login {
-    background: #E74C3C;
-    background: linear-gradient(to right, rgba(231, 76, 60), rgba(243, 156, 18));
+    background: #3498DB;
+    background: linear-gradient(to right, rgba(52, 152, 219), rgba(142, 68, 173));
 }
