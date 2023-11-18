@@ -4,7 +4,7 @@ import { Navbar } from "../components/layout/Navbar";
 import { RegisterPage } from "../pages/RegisterPage";
 import { UserProvider } from "../context/UserProvider";
 import { useContext } from "react";
-import { AuthContext } from "../auth/context/AuthContext";x
+import { AuthContext } from "../auth/context/AuthContext";
 
 export const UserRoutes = () => {
   const { login } = useContext(AuthContext);
