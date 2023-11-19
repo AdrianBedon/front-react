@@ -6,7 +6,7 @@ export const Navbar = () => {
   const { login, handlerLogout } = useContext(AuthContext);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg navbar-dark gradient">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           Travels App
@@ -42,10 +42,10 @@ export const Navbar = () => {
           className="collapse navbar-collapse justify-content-end"
           id="navbarNavLogout"
         >
-          <span className="nav-item nav-link text-primary mx-3">
-            {login.user.username}
+          <span className="nav-item nav-link mx-3">
+            {login.user.user.username}
           </span>
-          <button className="btn btn-outline-success" onClick={handlerLogout}>
+          <button className="btn btn-outline-danger" onClick={handlerLogout}>
             Logout
           </button>
         </div>
