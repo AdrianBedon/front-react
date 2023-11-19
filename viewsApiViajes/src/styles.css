@@ -97,7 +97,10 @@ h5 {
 .navbar {
   background: linear-gradient(
     to right,
-    rgba(27, 79, 114),
+    rgba(27, 79, 114, 0.5),
     rgba(72, 201, 176, 0.5)
-  );
+  ), url("https://images8.alphacoders.com/133/1335324.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
