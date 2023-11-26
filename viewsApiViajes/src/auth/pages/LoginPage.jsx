@@ -40,7 +40,7 @@ export const LoginPage = () => {
             <div className="modal-content">
               <div className="card bg-dark">
                 <div className="card-body p-5">
-                  <h5 className="text-center text-uppercase mb-2">Login</h5>
+                  <h5 className="text-center text-uppercase mb-2 log-text">Login</h5>
                   <p className="p-login mb-5 text-center">
                     Please enter your username and password
                   </p>
