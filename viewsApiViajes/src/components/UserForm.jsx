@@ -55,37 +55,44 @@ export const UserForm = ({ userSelected, handlerCloseForm }) => {
 
   return (
     <form onSubmit={onSubmit}>
-      <input
-        className="form-control my-3 w-75"
-        placeholder="Username"
-        name="username"
-        value={username}
-        onChange={onInputChange}
-      />
-      {id > 0 || (
+      <div className="input-group mb-4">
         <input
-          className="form-control my-3 w-75"
-          placeholder="Password"
-          type="password"
-          name="password"
-          value={password}
+          className="form-control"
+          placeholder="Username"
+          name="username"
+          value={username}
           onChange={onInputChange}
         />
+      </div>
+
+      {id > 0 || (
+        <div className="input-group mb-4">
+          <input
+            className="form-control"
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={onInputChange}
+          />
+        </div>
       )}
-      <input
-        className="form-control my-3 w-75"
-        placeholder="Email"
-        name="email"
-        value={email}
-        onChange={onInputChange}
-      />
+      <div className="input-group mb-4">
+        <input
+          className="form-control"
+          placeholder="Email"
+          name="email"
+          value={email}
+          onChange={onInputChange}
+        />
+      </div>
       <input type="hidden" name="id" value={id} />
-      <button className="btn btn-primary" type="submit">
+      <button className="btn btn-primary gradient-custom" type="submit">
         {id > 0 ? "Editar" : "Crear"}
       </button>
       {!handlerCloseForm || (
         <button
-          className="btn btn-primary mx-2"
+          className="btn btn-primary btn-danger mx-2"
           type="button"
           onClick={() => onCloseForm()}
         >

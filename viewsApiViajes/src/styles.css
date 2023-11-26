@@ -104,3 +104,14 @@ h5 {
   background-size: cover;
   background-position: center;
 }
+
+.btn-danger {
+  background: #F44336;
+  background: linear-gradient(
+    to right,
+    rgba(244, 67, 54),
+    rgba(249, 168, 37)
+  );
+  border: 0px;
+  font-weight: 600;
+}
