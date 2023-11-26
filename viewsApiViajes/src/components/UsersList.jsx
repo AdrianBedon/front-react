@@ -9,26 +9,26 @@ export const UsersList = () => {
   const { login } = useContext(AuthContext);
 
   return (
-    <table className="table table-hover table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Username</th>
-          <th>Email</th>
-          {!login.isAdmin || (
-            <>
-              <th>Update Modal</th>
-              <th>Update Form</th>
-              <th>Delete</th>
-            </>
-          )}
-        </tr>
-      </thead>
-      <tbody>
-        {users.map(({ id, username, email }) => (
-          <UserRow key={id} id={id} username={username} email={email} />
-        ))}
-      </tbody>
-    </table>
+    <div className="table-responsive">
+      <table className="table table-hover table-striped">
+        <thead className="table-dark">
+          <tr>
+            <th className="text-center">Id</th>
+            <th className="text-center">Username</th>
+            <th className="text-center">Email</th>
+            {!login.isAdmin || (
+              <>
+                <th className="text-center">Manage</th>
+              </>
+            )}
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(({ id, username, email }) => (
+            <UserRow key={id} id={id} username={username} email={email} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };

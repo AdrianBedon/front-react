@@ -11,15 +11,15 @@ export const UserRow = ({ id, username, email }) => {
 
   return (
     <tr>
-      <td>{id}</td>
-      <td>{username}</td>
-      <td>{email}</td>
+      <td className="text-center">{id}</td>
+      <td className="text-center">{username}</td>
+      <td className="text-center">{email}</td>
       {!login.isAdmin || (
         <>
-          <td>
+          <td className="text-center">
             <button
               type="button"
-              className="btn btn-primary btn-sm"
+              className="btn btn-primary btn-sm btn-update"
               onClick={() =>
                 handlerUserSelectedForm({
                   id,
@@ -28,18 +28,8 @@ export const UserRow = ({ id, username, email }) => {
                 })
               }
             >
-              Update Modal
+              Update
             </button>
-          </td>
-          <td>
-            <NavLink
-              className={"btn btn-secondary btn-sm"}
-              to={"/users/edit/" + id}
-            >
-              Update Form
-            </NavLink>
-          </td>
-          <td>
             <button
               type="button"
               className="btn btn-danger btn-sm"

@@ -115,3 +115,14 @@ h5 {
   border: 0px;
   font-weight: 600;
 }
+
+.btn-update {
+  background: #01579B;
+  background: linear-gradient(
+    to right,
+    rgba(1, 87, 155),
+    rgba(3, 169, 244)
+  );
+  border: 0px;
+  font-weight: 600;
+}
