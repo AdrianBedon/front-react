@@ -54,7 +54,7 @@ export const useUsers = () => {
         icon: "success",
       });
       handlerCloseForm();
-      navigate("/users");
+      navigate("/user");
     } catch (error) {
       if (error.response?.status == 401) {
         handlerLogout();

@@ -29,7 +29,7 @@ export const useAuth = () => {
         JSON.stringify({ isAuth: true, isAdmin: claims.isAdmin, user })
       );
       sessionStorage.setItem("token", `Bearer ${token}`);
-      navigate("/users");
+      navigate("/user");
     } catch (error) {
       if (error.response?.status == 401) {
         Swal.fire("Login Error", "Username or password error", "error");

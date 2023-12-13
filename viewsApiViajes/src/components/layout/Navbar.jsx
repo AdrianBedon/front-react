@@ -8,7 +8,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark gradient">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="">
           Travels App
         </a>
         <button
@@ -25,13 +25,18 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/users">
+              <NavLink className="nav-link" to="/user">
                 Usuarios
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/hotel">
+                Hoteles
               </NavLink>
             </li>
             {!login.isAdmin || (
               <li className="nav-item">
-                <NavLink className="nav-link" to="/users/register">
+                <NavLink className="nav-link" to="/user/register">
                   Registrar Usuario
                 </NavLink>
               </li>

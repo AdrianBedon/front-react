@@ -144,3 +144,38 @@ h5 {
   opacity: 0.75;
 }
 
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  padding: 20px;
+  grid-gap: 20px;
+}
+
+.card-hotel {
+  width: 18rem;
+}
+
+.container-card {
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.container-card::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hotel-name {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 10px 0 15px 0;
+}
+
+.t-hotel {
+  padding: 0.5rem 0.5rem;
+}
+
