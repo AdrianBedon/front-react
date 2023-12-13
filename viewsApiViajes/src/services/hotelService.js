@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/hotels";
+const BASE_URL = "https://core-viajes.onrender.com/hotels";
 
 /*const config = () => {
     return {
