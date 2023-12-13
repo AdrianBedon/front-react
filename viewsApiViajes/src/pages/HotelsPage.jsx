@@ -16,7 +16,7 @@ export const HotelsPage = () => {
     const opt = [{ key: "", value: "Select a city..." }];
 
     (async () => {
-      const { data } = await axios.get("http://localhost:8080/cities");
+      const { data } = await axios.get("https://core-viajes.onrender.com/cities");
       data.forEach((val) => {
         opt.push({
           key: val.id,
