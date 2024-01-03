@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { UserRoutes } from "./routes/UserRoutes";
 import { useContext } from "react";
 import { AuthContext } from "./auth/context/AuthContext";
-import { HotelRoutes } from "./routes/HotelRoutes";
+import { TravelPackageRoutes } from "./routes/TravelPckageRoutes";
 
 export const App = () => {
   const { login } = useContext(AuthContext);
@@ -11,13 +11,13 @@ export const App = () => {
     <Routes>
       {login.isAuth ? (
         <>
-          <Route path="user/*" element={<UserRoutes />} />
-          <Route path="hotel/*" element={<HotelRoutes />} />
+          <Route exact path="user/*" element={<UserRoutes />} />
+          <Route exact path="hotel/*" element={<TravelPackageRoutes />} />
         </>
       ) : (
         <>
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/*" element={<Navigate to="/login" />} />
+          <Route exact path="login" element={<LoginPage />} />
+          <Route exact path="*" element={<Navigate to="login" />} />
         </>
       )}
     </Routes>
