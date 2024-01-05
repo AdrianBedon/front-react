@@ -6,7 +6,7 @@ export const HotelsList = () => {
   const { hotels, hotelSelected, handlerHotelSelected } = useContext(CreatePackageContext);
 
   return (
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div className="row row-cols-1 row-cols-md-4 g-4">
       {hotels.map(({ id, name, city, price }) => (
         <HotelRow
           key={id}

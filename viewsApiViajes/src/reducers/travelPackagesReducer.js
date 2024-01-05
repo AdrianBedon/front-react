@@ -1,25 +1,15 @@
 export const travelPackagesReducer = (state = [], action) => {
-    switch (action.type) {
-        case 'addPackage':
-            return [
-                ...state,
-                {
-                    ...action.payload
-                }
-            ];
-        /*case 'updateUser':
-            return state.map(u => {
-                if(u.id === action.payload.id) {
-                    return {
-                        ...action.payload,
-                        password: u.password
-                    };
-                }
-                return u;
-            })
-        case 'loadingUsers':
-                return action.payload;
-        default:
-            return state*/
-    }
-}
+  switch (action.type) {
+    case "addPackage":
+      return [
+        ...state,
+        {
+          ...action.payload,
+        },
+      ];
+    case "loadingPackages":
+      return action.payload;
+    default:
+      return state;
+  }
+};

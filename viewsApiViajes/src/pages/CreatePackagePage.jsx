@@ -7,7 +7,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Tabs, Tab } from "react-bootstrap";
-import { Form } from "react-router-dom";
 
 export const CreatePackagePage = () => {
   const {
@@ -81,10 +80,6 @@ export const CreatePackagePage = () => {
 
     setPackageForm(newPackageForm);
     handlerAddPackage(packageForm);
-
-    setSelectedOption("All");
-    filterHotels(selectedOption);
-    filterFlights(selectedOption);
   };
 
   return (

@@ -5,7 +5,7 @@
   import { useContext } from "react";
   import { AuthContext } from "../auth/context/AuthContext";
 
-  export const TravelPackageRoutes = () => {
+  export const CreateTravelPackageRoutes = () => {
     const { login } = useContext(AuthContext);
 
     return (

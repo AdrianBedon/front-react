@@ -2,7 +2,6 @@ import { useContext, useReducer, useState } from "react";
 import Swal from "sweetalert2";
 import { travelPackagesReducer } from "../reducers/travelPackagesReducer";
 import { save } from "../services/travelPackageService";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/context/AuthContext";
 
 const initialPackages = [];
@@ -20,18 +19,21 @@ const initialPackageForm = {
 };
 
 export const useTravelPackage = () => {
-  const [packages, dispatch] = useReducer(travelPackagesReducer, initialPackages);
+  const [packages, dispatch] = useReducer(
+    travelPackagesReducer,
+    initialPackages
+  );
   const [packageSelected, setPackageSelected] = useState(initialPackageForm);
   const { login, handlerLogout } = useContext(AuthContext);
 
-  /*const getUsers = async () => {
+  const getPackages = async () => {
     const result = await findAll();
     console.log(result);
     dispatch({
-      type: "loadingUsers",
+      type: "loadingPackages",
       payload: result.data,
     });
-  };*/
+  };
 
   const handlerAddPackage = async (tPackage) => {
     let response;
@@ -62,55 +64,10 @@ export const useTravelPackage = () => {
     }
   };
 
-  /*const handlerRemoveUser = (id) => {
-    if (!login.isAdmin) return;
-    Swal.fire({
-      title: "Are you sure?",
-      text: " Warning! You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then(async (result) => {
-      if (result.isConfirmed) {
-        try {
-          await remove(id);
-          dispatch({
-            type: "removeUser",
-            payload: id,
-          });
-          Swal.fire({
-            title: "User Deleted!",
-            text: "The user has been deleted.",
-            icon: "success",
-          });
-        } catch (error) {
-          if (error.response?.status == 401) {
-            handlerLogout();
-          }
-        }
-      }
-    });
-  };
-
-  const handlerUserSelectedForm = (user) => {
-    setVisibleForm(true);
-    setUserSelected({ ...user });
-  };
-
-  const handlerOpenForm = () => {
-    setVisibleForm(true);
-  };
-
-  const handlerCloseForm = () => {
-    setVisibleForm(false);
-    setUserSelected(initialUserForm);
-  };*/
-
   return {
     packages,
     packageSelected,
+    getPackages,
     initialPackageForm,
     handlerAddPackage,
   };
