@@ -1,5 +1,6 @@
 import { useFlights } from "../hooks/useFlights";
 import { useHotels } from "../hooks/useHotels";
+import { useTravelPackage } from "../hooks/useTravelPackage";
 import { CreatePackageContext } from "./CreatePackageContext";
 
 export const CreatePackageProvider = ({ children }) => {
@@ -18,6 +19,8 @@ export const CreatePackageProvider = ({ children }) => {
     handlerFlightSelected,
   } = useFlights();
 
+  const { packages, handlerAddPackage, initialPackageForm } = useTravelPackage();
+
   return (
     <CreatePackageContext.Provider
       value={{
@@ -31,6 +34,7 @@ export const CreatePackageProvider = ({ children }) => {
         getFlights,
         filterFlights,
         handlerFlightSelected,
+        handlerAddPackage,
       }}
     >
       {children}

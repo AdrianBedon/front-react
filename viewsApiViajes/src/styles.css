@@ -216,6 +216,24 @@ h5 {
   top: 0;
 }
 
+.btn-create {
+  background: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 400;
+  border: 2px solid #48c9b0;
+  color: black;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.btn-create:hover {
+  background-color: #48c9b0;
+  color: white;
+}
+
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
   color: white;
   background: #48c9b0;

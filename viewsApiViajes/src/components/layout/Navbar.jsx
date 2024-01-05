@@ -31,7 +31,7 @@ export const Navbar = () => {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link nav-link-p" to="/hotel">
-                Hoteles
+                Crear paquete de viaje
               </NavLink>
             </li>
             {!login.isAdmin || (
