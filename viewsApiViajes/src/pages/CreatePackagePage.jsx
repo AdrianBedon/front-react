@@ -35,21 +35,28 @@ export const CreatePackagePage = () => {
   const [packageForm, setPackageForm] = useState(initialPackageForm);
 
   useEffect(() => {
-    const opt = [{ key: "", value: "Select a city..." }];
+    const fetchCities = async () => {
+      try {
+        const { data } = await axios.get(
+          "https://core-viajes.onrender.com/cities"
+        );
 
-    (async () => {
-      const { data } = await axios.get(
-        "https://core-viajes.onrender.com/cities"
-      );
-      data.forEach((val) => {
-        opt.push({
-          key: val.id,
-          value: val.name,
+        const opt = [{ key: "", value: "Select a city..." }];
+
+        data.forEach((val) => {
+          opt.push({
+            key: val.id,
+            value: val.name,
+          });
         });
-      });
-    })();
 
-    setOptions(opt);
+        setOptions(opt);
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    };
+
+    fetchCities();
   }, []);
 
   useEffect(() => {
@@ -208,7 +215,7 @@ export const CreatePackagePage = () => {
         flightSelected.id !== 0 &&
         priceDifference !== 0 ? (
           <p>
-            Puedes encontrar el paquete a ${priceDifference} entre Mayo y
+            Puedes encontrar el paquete a ${Math.round(priceDifference)} menos entre Mayo y
             Octubre
           </p>
         ) : (
@@ -252,7 +259,7 @@ export const CreatePackagePage = () => {
               <input
                 className="form-control"
                 type="number"
-                value={priceP}
+                value={Math.round(priceP)}
                 disabled
               ></input>
             </div>
