@@ -421,6 +421,10 @@ h5 {
   transform: scale(1.35);
 }
 
+.card__title {
+  color: #2d9596;
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
