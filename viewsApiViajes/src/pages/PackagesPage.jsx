@@ -206,7 +206,7 @@ export const PackagesPage = () => {
           </div>
           {packages.length === 0 ? (
             <div className="alert alert-warning">
-              No hay hoteles registrados en el sistema!
+              No hay paquetes registrados en el sistema!
             </div>
           ) : (
             <PackagesList />
