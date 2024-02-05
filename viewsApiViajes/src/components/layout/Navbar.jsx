@@ -34,6 +34,11 @@ export const Navbar = () => {
                 Crear paquete de viaje
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link nav-link-p" to="/tpackages">
+                Paquetes de viaje
+              </NavLink>
+            </li>
             {!login.isAdmin || (
               <>
                 <li className="nav-item">

@@ -9,6 +9,12 @@ export const travelPackagesReducer = (state = [], action) => {
       ];
     case "loadingPackages":
       return action.payload;
+    case "filterDate":
+      return action.payload;
+    case "filterPrice":
+      return action.payload;
+    case "filterCity":
+      return action.payload;
     default:
       return state;
   }

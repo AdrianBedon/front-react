@@ -1,7 +1,13 @@
 import { useContext, useReducer, useState } from "react";
 import Swal from "sweetalert2";
 import { travelPackagesReducer } from "../reducers/travelPackagesReducer";
-import { save } from "../services/travelPackageService";
+import {
+  findAll,
+  findCity,
+  findDate,
+  findPrice,
+  save,
+} from "../services/travelPackageService";
 import { AuthContext } from "../auth/context/AuthContext";
 
 const initialPackages = [];
@@ -31,6 +37,51 @@ export const useTravelPackage = () => {
     console.log(result);
     dispatch({
       type: "loadingPackages",
+      payload: result.data,
+    });
+  };
+
+  const getPackagesByDate = async (date) => {
+    let result;
+    if (date === "") {
+      result = await findAll();
+    } else {
+      result = await findDate(date);
+    }
+    console.log(result);
+    dispatch({
+      type: date !== "" ? "filterDate" : "loadingPackages",
+      payload: result.data,
+    });
+  };
+
+  const getPackagesByPrice = async (initPrice, finalPrice) => {
+    let result;
+    if (initPrice === "" || finalPrice === "") {
+      result = await findAll();
+    } else {
+      result = await findPrice(initPrice, finalPrice);
+    }
+    console.log(result);
+    dispatch({
+      type:
+        initPrice !== "" || finalPrice !== ""
+          ? "filterPrice"
+          : "loadingPackages",
+      payload: result.data,
+    });
+  };
+
+  const getPackagesByCity = async (city) => {
+    let result;
+    if (city === "All") {
+      result = await findAll();
+    } else {
+      result = await findCity(city);
+    }
+    console.log(result);
+    dispatch({
+      type: city !== "All" ? "filterCity" : "loadingPackages",
       payload: result.data,
     });
   };
@@ -68,6 +119,9 @@ export const useTravelPackage = () => {
     packages,
     packageSelected,
     getPackages,
+    getPackagesByDate,
+    getPackagesByPrice,
+    getPackagesByCity,
     initialPackageForm,
     handlerAddPackage,
   };

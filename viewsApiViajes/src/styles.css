@@ -234,7 +234,8 @@ h5 {
   color: white;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
   color: white;
   background: #48c9b0;
   border-color: none;
@@ -242,4 +243,232 @@ h5 {
 
 .bg-custom-selected {
   background-color: #48c9b0;
+}
+
+/***********************************************Form**************************************************/
+
+.form__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.input__container {
+  position: relative;
+  margin: 20px;
+}
+
+.input__field {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background-color: transparent;
+}
+
+.input__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  color: rgba(204, 204, 204, 0);
+  pointer-events: none;
+  transition: all 0.3 ease;
+}
+
+.input__highlight {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #265073;
+  transition: all 0.3s ease;
+}
+
+.input__field:focus + .input__label {
+  top: -20px;
+  font-size: 12px;
+  color: #265073;
+}
+
+.input__field:focus + .input__label + .input__highlight {
+  width: 100%;
+}
+
+.button__container {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 1.5rem;
+  background-color: #3d3a4e;
+  background-size: 400%;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__content {
+  position: relative;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+    82.3deg,
+    rgba(1, 87, 155, 1) 10.8%,
+    rgba(3, 169, 244, 1) 94.3%
+  );
+  transition: all 0.475s;
+}
+
+/***********************************************Radio Inputs**************************************************/
+
+.radio__inputs {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #eee;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+  width: 300px;
+  font-size: 14px;
+}
+
+.radio__inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.radio__inputs .radio input {
+  display: none;
+}
+
+.radio__inputs .radio .radio__name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem 0;
+  color: rgba(51, 65, 85, 1);
+  transition: all 0.15s ease-in-out;
+}
+
+.radio__inputs .radio input:checked + .radio__name {
+  background-color: #fff;
+  font-weight: 600;
+}
+/***********************************************Card Packages**************************************************/
+
+.card__tp {
+  background-color: #265073;
+  border-radius: 1.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px;
+  display: flex;
+  width: 22rem;
+  height: 25rem;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.card__tp:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 16px;
+}
+
+.card__preview {
+  height: 12rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__preview img {
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease-out;
+}
+
+.card__tp:hover .card__preview img {
+  transform: scale(1.35);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.card__price {
+  background-color: white;
+  color: #265073;
+  z-index: 1;
+  position: absolute;
+  bottom: 1.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  left: 1.25rem;
+  font-weight: bold;
+}
+
+.card__content {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  color: #9ad0c2;
+}
+
+.card__bottom {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__hotel {
+  margin-top: 0.5rem;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.card__flight {
+  margin-top: 0.5rem;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
 }
