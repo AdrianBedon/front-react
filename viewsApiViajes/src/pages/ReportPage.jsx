@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ReportContext } from "../context/ReportContext";
 import { PeakList } from "../components/PeakList";
 import { OffList } from "../components/OffList";
+import { ServerList } from "../components/ServerList";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
@@ -11,7 +12,7 @@ export const ReportPage = () => {
   const [initialDate, setInitialDate] = useState(new Date());
   const [sale, setSale] = useState(0);
 
-  const { peaks, getPeaks, offs, getOffs, sales } = useContext(ReportContext);
+  const { peaks, getPeaks, offs, getOffs, servers, getServers } = useContext(ReportContext);
 
   const fetchSale = async () => {
     try {
@@ -35,6 +36,10 @@ export const ReportPage = () => {
 
   useEffect(() => {
     getOffs();
+  }, []);
+  
+  useEffect(() => {
+    getServers();
   }, []);
 
   return (
@@ -62,6 +67,21 @@ export const ReportPage = () => {
               </div>
             ) : (
               <OffList />
+            )}
+          </div>
+        </div>
+        <h2>Reporte de Servidores</h2>
+        <div className="row">
+          <div className="col">
+            <p></p>
+            <h3>Listado de Servidores</h3>
+            <p></p>
+            {servers.length === 0 ? (
+              <div className="alert alert-warning">
+                No hay registros en el sistema!
+              </div>
+            ) : (
+              <ServerList />
             )}
           </div>
         </div>
