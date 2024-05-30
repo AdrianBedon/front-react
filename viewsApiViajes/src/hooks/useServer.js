@@ -12,7 +12,7 @@ export const useServer = () => {
     console.log(result);
     dispatch({
       type: "loadingServers",
-      payload: result.data,
+      payload: result.data.servidores,
     });
   };
 
