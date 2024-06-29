@@ -6,16 +6,14 @@ import { Route, Routes } from "react-router-dom";
 import { ReportPage } from "../pages/ReportPage";
 
 export const ReportRoutes = () => {
-  const { login } = useContext(AuthContext);
+  //const { login } = useContext(AuthContext);
 
   return (
     <>
       <ReportProvider>
         <Navbar />
         <Routes>
-          {!login.isAdmin || (
-            <Route exact path="/" element={<ReportPage />} />
-          )}
+          <Route exact path="/" element={<ReportPage />} />
         </Routes>
       </ReportProvider>
     </>

@@ -19,7 +19,7 @@ export const useUsers = () => {
   const [userSelected, setUserSelected] = useState(initialUserForm);
   const [visibleForm, setVisibleForm] = useState(false);
   const navigate = useNavigate();
-  const { login, handlerLogout } = useContext(AuthContext);
+  //const { login, handlerLogout } = useContext(AuthContext);
 
   const getUsers = async () => {
     const result = await findAll();

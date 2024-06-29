@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Swal from "sweetalert2";
-import { AuthContext } from "../context/AuthContext";
+import { useKeycloak } from "@react-keycloak/web";
 
 const initialLoginForm = {
   username: "",
   password: "",
 };
 export const LoginPage = () => {
-  const { handlerLogin } = useContext(AuthContext);
+  const { keycloak } = useKeycloak();
   const [loginForm, setLoginForm] = useState(initialLoginForm);
   const { username, password } = loginForm;
 
@@ -19,17 +19,20 @@ export const LoginPage = () => {
     });
   };
 
-  const onSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!username || !password) {
+    try {
+      await keycloak.login({
+        loginForm 
+      });
+    } catch (error) {
       Swal.fire(
         "Validation Error",
         "Username and password are required",
         "error"
       );
+      console.error("Failed to log in", error);
     }
-    handlerLogin({ username, password });
-    setLoginForm(initialLoginForm);
   };
 
   return (
@@ -44,7 +47,7 @@ export const LoginPage = () => {
                   <p className="p-login mb-5 text-center">
                     Please enter your username and password
                   </p>
-                  <form onSubmit={onSubmit}>
+                  <form onSubmit={handleSubmit}>
                     <div className="input-group mb-4">
                       <span className="input-group-text">👤</span>
                       <input

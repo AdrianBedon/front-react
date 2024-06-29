@@ -6,7 +6,7 @@ import { AuthContext } from "../auth/context/AuthContext";
 export const UsersList = () => {
   const { users } = useContext(UserContext);
 
-  const { login } = useContext(AuthContext);
+  //const { login } = useContext(AuthContext);
 
   return (
     <div className="table-responsive">
@@ -16,11 +16,7 @@ export const UsersList = () => {
             <th className="text-center">Id</th>
             <th className="text-center">Username</th>
             <th className="text-center">Email</th>
-            {!login.isAdmin || (
-              <>
-                <th className="text-center">Manage</th>
-              </>
-            )}
+            <th className="text-center">Manage</th>
           </tr>
         </thead>
         <tbody>

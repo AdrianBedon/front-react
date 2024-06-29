@@ -1,9 +1,32 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../auth/context/AuthContext";
+import { useKeycloak } from "@react-keycloak/web";
 
 export const Navbar = () => {
-  const { login, handlerLogout } = useContext(AuthContext);
+  const { keycloak, initialized } = useKeycloak();
+
+  useEffect(() => {
+    if (keycloak.authenticated) {
+      sessionStorage.setItem("token", `Bearer ${keycloak.token}`);
+      sessionStorage.setItem("refreshToken", keycloak.refreshToken);
+
+      keycloak.onTokenExpired = () => {
+        keycloak
+          .updateToken(30)
+          .then((refreshed) => {
+            if (refreshed) {
+              sessionStorage.setItem("token", `Bearer ${keycloak.token}`);
+            } else {
+              console.warn("Token not refreshed");
+            }
+          })
+          .catch(() => {
+            console.error("Failed to refresh token");
+          });
+      };
+    }
+  }, [keycloak]);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark gradient">
@@ -39,32 +62,43 @@ export const Navbar = () => {
                 Paquetes de viaje
               </NavLink>
             </li>
-            {!login.isAdmin || (
-              <>
-                <li className="nav-item">
-                  <NavLink className="nav-link nav-link-p" to="/user/register">
-                    Registrar Usuario
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link nav-link-p" to="/report">
-                    Reporte
-                  </NavLink>
-                </li>
-              </>
-            )}
+            <li className="nav-item">
+              <NavLink className="nav-link nav-link-p" to="/user/register">
+                Registrar Usuario
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link nav-link-p" to="/report">
+                Reporte
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div
           className="collapse navbar-collapse justify-content-end"
           id="navbarNavLogout"
         >
-          <span className="nav-item nav-item-p nav-link nav-link-p mx-3">
-            {login.user.user.username}
-          </span>
-          <button className="btn btn-outline-danger" onClick={handlerLogout}>
-            Logout
-          </button>
+          {!keycloak.authenticated && (
+            <button
+              className="btn btn-outline-submit"
+              onClick={() => keycloak.login()}
+            >
+              Log In
+            </button>
+          )}
+          {!!keycloak.authenticated && (
+            <>
+              <span className="nav-item nav-item-p nav-link nav-link-p mx-3">
+                Hola {keycloak.tokenParsed.preferred_username}
+              </span>
+              <button
+                className="btn btn-outline-danger"
+                onClick={keycloak.logout}
+              >
+                Logout
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>

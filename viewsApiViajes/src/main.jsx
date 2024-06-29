@@ -2,15 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App.jsx";
 import "./styles.css";
-import { HashRouter } from "react-router-dom";
-import { AuthProvider } from "./auth/context/AuthProvider.jsx";
+import { BrowserRouter } from "react-router-dom";
+import { ReactKeycloakProvider } from "@react-keycloak/web";
+import keycloak from "./auth/KeycloakConfig.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <HashRouter>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </HashRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <ReactKeycloakProvider authClient={keycloak}>
+      <App />
+    </ReactKeycloakProvider>
+  </BrowserRouter>
 );

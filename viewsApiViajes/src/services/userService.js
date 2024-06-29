@@ -5,14 +5,14 @@ const BASE_URL = "https://core-viajes.onrender.com/users";
 const config = () => {
   return {
     headers: {
-      "Authorization": sessionStorage.getItem("token"),
+      Authorization: sessionStorage.getItem("token"),
       "Content-Type": "application/json",
     },
   };
 };
 export const findAll = async () => {
   try {
-    const response = await axios.get(BASE_URL);
+    const response = await axios.get(BASE_URL, config());
     return response;
   } catch (error) {
     console.log(error);
@@ -22,18 +22,22 @@ export const findAll = async () => {
 
 export const save = async ({ username, email, password }) => {
   try {
-    return await axios.post(BASE_URL, {
-      username,
-      email,
-      password,
-    }, config());
+    return await axios.post(
+      BASE_URL,
+      {
+        username,
+        email,
+        password,
+      },
+      config()
+    );
   } catch (error) {
     console.log(error);
   }
   return undefined;
 };
 
-export const update = async ({ id,  username, email }) => {
+export const update = async ({ id, username, email }) => {
   try {
     return await axios.put(
       `${BASE_URL}/${id}`,

@@ -8,7 +8,7 @@ export const UsersPage = () => {
   const { users, visibleForm, handlerOpenForm, getUsers } =
     useContext(UserContext);
 
-  const { login } = useContext(AuthContext);
+  //const { login } = useContext(AuthContext);
 
   useEffect(() => {
     getUsers();
@@ -20,14 +20,9 @@ export const UsersPage = () => {
         <h2>Travels App</h2>
         <div className="row">
           <div className="col">
-            {(visibleForm || !login.isAdmin) || (
-              <button
-                className="btn btn-primary my-2"
-                onClick={handlerOpenForm}
-              >
-                Nuevo Usuario
-              </button>
-            )}
+            <button className="btn btn-primary my-2" onClick={handlerOpenForm}>
+              Nuevo Usuario
+            </button>
             {users.length === 0 ? (
               <div className="alert alert-warning">
                 No hay usuarios en el sistema!

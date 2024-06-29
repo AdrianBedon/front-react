@@ -2,7 +2,6 @@
   "name": "package.json",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://adrianbedon.github.io/front-react/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
@@ -13,13 +12,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-keycloak/web": "^3.4.0",
     "axios": "^1.6.2",
+    "keycloak-js": "^25.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.2",
     "react-datepicker": "^4.25.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
-    "sweetalert2": "^11.9.0"
+    "sweetalert2": "^11.9.0",
+    "web-vitals": "^4.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../auth/context/AuthContext";
 
 export const UserRoutes = () => {
-  const { login } = useContext(AuthContext);
+  //const { login } = useContext(AuthContext);
 
   return (
     <>
@@ -15,12 +15,8 @@ export const UserRoutes = () => {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<UsersPage />} />
-          {!login.isAdmin || (
-            <>
-              <Route exact path="register" element={<RegisterPage />} />
-              <Route exact path="edit/:id" element={<RegisterPage />} />
-            </>
-          )}
+          <Route exact path="register" element={<RegisterPage />} />
+          <Route exact path="edit/:id" element={<RegisterPage />} />
           <Route exact path="/" element={<Navigate to="user" />} />
         </Routes>
       </UserProvider>

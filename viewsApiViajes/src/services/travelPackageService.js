@@ -5,7 +5,7 @@ const BASE_URL = "https://core-viajes.onrender.com/packages";
 const config = () => {
   return {
     headers: {
-      Authorization: sessionStorage.getItem("token"),
+      "Authorization": sessionStorage.getItem("token"),
       "Content-Type": "application/json",
     },
   };
